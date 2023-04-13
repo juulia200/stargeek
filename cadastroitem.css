@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 15vh 70vh 15vh;
+    grid-template-areas: 
+    "h h"
+    "c c"
+    "r r";
+}
+
+header{
+    grid-area: h;
+    background-color: #19142C
+}
+
+main{
+    grid-area: c;
+    padding: 30px;
+    background-color: #221c3dc5;
+    
+
+}
+
+
+.hcenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    color: white;
+
+}
+
+form > div> input {
+    font-size: 1em;
+    width: 100%;
+    height: 10px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-radius: 5px;
+ 
+}
+
+form > label {
+    font-size: 1em;
+    font-weight: 700;
+    margin-left: 0px;
+}
+
+form > div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    margin-bottom: 30px;
+}
+
+h1{
+    height: 70px;
+}
+
+textarea{
+    border-radius: 10px;
+    background-color: #A794B4;
+}
+
+.btn-02{
+    width: 100%;
+    
+    border-radius: 40px;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.btn-02:hover{
+    transform: scale(0.9);
+    transition: 0.5s;
+    background: #574367;
+    border-radius: 40px;
+}
+
+footer{
+    grid-area: r;
+    background-color:#19142C;
+}

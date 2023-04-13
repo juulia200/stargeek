@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;;
+    position: absolute;
+    width: 627px;
+    height: 0px;
+    left: 0px;
+    top: 0px;
+    background-color: #372E5D;
+}
+
+.container{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "e d"
+    "r r";
+}
+
+main{
+    grid-area: e;
+}
+
+
+
+article{
+    grid-area: d;
+    width: 600px;
+    height: 890px;
+    background-color: #221C3D;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hdireita > form > h1 {
+    font-size: 4em;
+    padding-left: 100px;
+    color: white;
+    height: 100px;
+    width: 390px;
+    gap: 200px;
+    font-weight: bold;
+}
+
+.hdireita > label {
+    font-size: 1em;
+    margin-left: 150px;
+    color: white;
+    height: 100px;
+    font-weight: 700;
+    line-height: 39px;
+    margin-left: 40px;
+}
+
+.hdireita > input{
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+form{
+    width: 490px;
+    height: 90px;
+    left: 720px;
+    padding-left: 30px;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+form > input{
+   width: 490px;
+   height: 90px;
+   left: 720px;
+   border-radius: 10px;
+}
+
+form > label{
+    width: 490px;
+    height: 90px;
+    left: 720px;
+    color: white;
+}
+
+.btn-02{
+    padding: 10px 20px;
+    margin-left: 16px;
+    background: #ffffff;
+    border-radius: 40px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 61px;
+    color: #000000;
+    margin-left: 3px;
+
+}
+
+.btn-02:hover{
+    transform: scale(0.9);
+    transition: 0.5s;
+    background: #6F5781;
+    border-radius: 40px;
+}
+
+footer{
+    grid-area: r;
+    background-color:#372E5D;
+    width: 100vw;
+    height: 150%;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+
+
