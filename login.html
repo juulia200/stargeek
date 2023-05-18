@@ -13,14 +13,15 @@
         <main>
             <div class="hcenter">
                 <h1>Login</h1>
-                <form action="catalogo.html">
+                <form action="catalogo.html" id="formulario">
+                    <div class="mensagem"></div>
                     <div>
-                        <label>Email:</label>
-                        <input type="text" placeholder="Email completo">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Email completo">
                     </div>
                     <div>
-                        <label>Senha:</label>
-                        <input type="text" placeholder="Senha">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" placeholder="Senha">
                     </div>
                     <input type="submit" value="Fazer login" class="btn-02">
                 </form>
@@ -34,5 +35,6 @@
             </div>
         </footer>
     </div>
+    <script src="login.js"></script>
 </body>
 </html>

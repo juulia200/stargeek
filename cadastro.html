@@ -16,26 +16,21 @@
     </main>
     <article>
         <div class="hdireita">
-            <form action="catalogo.html">
+            <form action="catalogo.html" id="formulario">
                 <h1>Cadastro</h1>
+                <div class="mensagem"></div>
                 <br>
                 <br>
-                <label>Nome completo:</label>
-                <input type="text" placeholder="Nome completo">
+                <label for="nome">Nome completo:</label>
+                <input type="text" name="nome" id="nome" placeholder="Nome completo">
                 <br>
                 <br>
-                <label>Email:</label>
-                <input type="text" placeholder="Email">
+                <label for="email">Email:</label>
+                <input type="email" email="email" id="email" placeholder="Email">
                 <br>
                 <br>
-                <label>Senha:</label>
-                <input type="text" placeholder="Senha">
-                <br>
-                <br>
-                <label>Confirma senha:</label>
-                <input type="text" placeholder="Confirma senha">
-                <br>
-                <br>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" placeholder="Senha">
                 <br>
                 <br>
                 <br>
@@ -53,6 +48,7 @@
             </div>
            </footer>
     </div>
+    <script src="cadastro.js"></script>
     
 </body>
 </html>
