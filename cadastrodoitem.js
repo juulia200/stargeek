@@ -1,81 +1,85 @@
-const nome = document.getElementById("nome");
-const descricao = document.getElementById("descricao");
+const nomedotitulo = document.getElementById("nome");
+const resumo = document.getElementById("resumo");
+const botao = document.getElementById("botao");
 const foto = document.getElementById("foto");
-const botaocadastrar = document.querySelector(".btncadastrar");
 
 var url = new URL(window.location.href);
 var peditar = url.searchParams.get("peditar");
 var pindice = url.searchParams.get("indice");
 
-if (peditar == "true"){
-  editar(pindice);
+if(peditar == "true"){
+    editar(pindice);
 }
 
-botaocadastrar.onclick = (evento)=>{
-  
-  if ((peditar != "true") || (peditar == null)){
-    evento.preventDefault();
-    fenvio().then(result =>{
-                     if(result){
-                        let dados = JSON.parse(localStorage.getItem("catalogo"))||[];
-                        dados.push(
-                                      {
-                                        nome: nome.value,
-                                        descricao: descricao.value,
-                                        foto: nomeArq
-                                        }
-                                     )
-                        localStorage.setItem("catalogo", JSON.stringify(dados));
-                        window.location.assign("catalogo.html");
-                        
-                     }else{
-                        alert("Houve erro no envio do arquivo");
-                     }
+botao.onclick=(evento)=>{
+  if((peditar = "true") || (peditar == null)){
 
-                    });
-      }else
+  evento.preventDefault();
+  fenvio()
+  .then(result =>{
+      if(result){
+          let dados = JSON.parse(localStorage.getItem("catalogo")) || [];
+  dados.push(
       {
-        editarenvio(evento);
-        window.location.assign("catalogo.html");
+          nome : nome.value,
+          descricao : resumo.value,
+          foto : nomeArq
       }
-    
+      )
+  localStorage.setItem("catalogo", JSON.stringify(dados));
+  window.location.assign("catalogo.html");
+  }
+      else{
+          alert("Houve um erro no envio do arquivo")
+      }
+  });
+
+}else{
+
+    editarenvio(evento);
+    window.location.assign("catalago.html");
 }
+
+}
+
 function editar(indice){
-  nome.value = "editar";
-  descricao.value = "editar";
+  nomedotitulo.value = "";
+  resumo.value = "";
   foto.files[0] = null;  
   let dados = JSON.parse(localStorage.getItem("catalogo"));
-  nome.value = dados[indice].nome;
-  descricao.value = dados[indice].descricao;
+  nomedotitulo.value = dados[indice].nome;
+  resumo.value = dados[indice].descricao;
   fotoa= dados[indice].foto;
  
 }
-var fotoa;
+
+var fotoa
 function editarenvio(evento){
-     evento.preventDefault();
-    if ((fotoa != foto.value)&&(foto.value != "")){
- 
+  evento.preventDefault();
+  if ((fotoa != foto.value) && (foto.value != "")){
+     
     fenvio()
     .then(result =>{
-                    if(result){
-                      salvaEdicao(nomeArq);
-                       }
-                    });
-   }
-   else
-   {
-        salvaEdicao(fotoa);
-   } 
+      if(result){
+        salvaEdicao(nomeArq);
+      }
+    });
+  }
+  else{
+    salvarEdicao(fotoa);
+  }
 }
 
 function salvaEdicao(pfoto){
-  let dados = JSON.parse(localStorage.getItem("catalogo"));
+  let dados = JSON.parse(localStorage.getItem("ctalogo"));
   dados[pindice].nome = nome.value;
   dados[pindice].descricao = descricao.value;
   dados[pindice].foto = pfoto;
-  localStorage.setItem("catalogo", JSON.stringify(dados));
+  dados[pindice].email = emaillogado;
+  localStorage.setItem("catalogo" , JSON.stringify(dados));
 
 }
+
 var nomeArq;
 async function fenvio() { 
     const url = 'http://localhost:3005/upload';
