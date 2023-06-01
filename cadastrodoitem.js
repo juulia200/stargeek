@@ -7,6 +7,9 @@ var url = new URL(window.location.href);
 var peditar = url.searchParams.get("peditar");
 var pindice = url.searchParams.get("indice");
 
+var emaillogado;
+femailLogado();
+
 if(peditar == "true"){
     editar(pindice);
 }
@@ -23,7 +26,8 @@ botao.onclick=(evento)=>{
       {
           nome : nome.value,
           descricao : resumo.value,
-          foto : nomeArq
+          foto : nomeArq,
+          email: emaillogado
       }
       )
   localStorage.setItem("catalogo", JSON.stringify(dados));
@@ -109,4 +113,13 @@ async function fenvio() {
         console.error(error);
         return false;
       }
+}
+
+function femailLogado(){
+  let dados = sessionStorage.getItem ("logado");
+  if(dados == null){
+      window.location.assign("login.html");
+  }else{
+      emaillogado = dados;
+  }
 }

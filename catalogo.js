@@ -3,6 +3,8 @@ const cards = document.querySelector(".cards");
 var url = new URL(window.location.href);
 var peditar = url.searchParams.get("peditar");
 var pindice = url.searchParams.get("indice");
+var emaillogado;
+femailLogado();
 
 if(peditar == "true"){
     editar(pindice);
@@ -19,17 +21,18 @@ function carregarCatalogo(){
     }
 
     dados.forEach((elemento, indice) => {
+        if(elemento.email == emaillogado){
         let divcard = document.createElement("div");
         divcard.setAttribute("class", "card");
         divcard.innerHTML = `
         <div class="cardimgb"><img src="img/${elemento.foto}"></div> 
-        <div class="nome">${elemento.nome}</div>
+        <div class="cardnome">${elemento.nome}</div>
         <div class="descricao">${elemento.descricao}</div>
         <div class="cardbtn">
         <img src="imagens/lixo.png" alt="" onclick="excluir(${indice})"> 
         <img src="imagens/caneta.png" alt="" onclick="editar(${indice})">
         </div>`;
-        cards.appendChild(divcard);
+        cards.appendChild(divcard);}
     });
 }
 
@@ -52,10 +55,13 @@ function editar(indice){
 
 }
 
-botaomodal.onclick = () =>{
-    window.location.assign("cadastrodoitem.html");
-}
 
-function femaillogado(){
-    let dados = JSON.perse(sessionStorage.getItem)
-}
+
+function femailLogado(){
+    let dados = sessionStorage.getItem ("logado");
+    if(dados == null){
+        window.location.assign("login.html");
+    }else{
+        emaillogado = dados;
+    }
+  }
